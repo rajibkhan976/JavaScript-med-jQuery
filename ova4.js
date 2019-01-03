@@ -23,7 +23,7 @@ var bytaDjur = djur.find(function (element) {return element == changeDjur;});
 console.log(djur.splice(djur.indexOf(bytaDjur),1));
 console.log(djur);
 //6
-/*for (var y = 0; y < djur.length; y++) {
+for (var y = 0; y < djur.length; y++) {
   var guessDjur = window.prompt("Guess an animal name");
   var userGuess = djur.find(function (element) {return element == guessDjur;});
   if(userGuess) {
@@ -31,7 +31,7 @@ console.log(djur);
   } else {
     console.log("You are wrong");
   }
-}*/
+}
 //7
 var text = ['t', 't', 'ä', 'l', ' ', 'r', 'a', 'v', ' ', 'a', 't', 't', 'e', 'D'];
 console.log(text.reverse());
