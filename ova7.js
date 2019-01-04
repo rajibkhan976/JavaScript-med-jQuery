@@ -16,7 +16,9 @@ console.log(man);
 var objMetod = {metod: function () {console.log("Hello!");}};
 objMetod.metod();
 //6
-var objMetod2 = {metod: function (param1) {console.log(alert(param1));}};
+var objMetod2 = {
+  metod: function (param1) {console.log(alert(param1));}
+};
 objMetod2.metod('pelle');
 //7
 var pass = {};
@@ -25,9 +27,26 @@ pass["password2"] = 2;
 pass["password3"] = 3;
 console.log(pass);
 //8
-var objFunc = {speed: 0, height: 0, init: function () { speed2 (); height2 ();}};
-function speed2 () {objFunc['speed'] += 2; console.log(objFunc['speed']);}
-function height2 () {objFunc['height'] += 1; console.log(objFunc['height']);}
+var objFunc = {
+  speed: 0,
+  height: 0,
+
+  init: function () {
+    speed2 ();
+    height2 ();
+  }
+};
+
+function speed2 () {
+  objFunc['speed'] += 2;
+  console.log(objFunc['speed']);
+}
+
+function height2 () {
+  objFunc['height'] += 1;
+  console.log(objFunc['height']);
+}
+
 objFunc.init();objFunc.init();objFunc.init();
 //9
 var objFunc3 = {name: 'Farhad', age: 29};

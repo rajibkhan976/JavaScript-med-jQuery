@@ -35,19 +35,27 @@ for (var y = 0; y < djur.length; y++) {
 //7
 var text = ['t', 't', 'ä', 'l', ' ', 'r', 'a', 'v', ' ', 'a', 't', 't', 'e', 'D'];
 console.log(text.reverse());
-//8
+//8 !!!
 var buyItems = [];
 for (var w = 0; w < 5; w++){
-  buyItems.push(window.prompt("Enter five items that you want to buy"));
+  buyItems.push(window.prompt("Enter five items in your shopping list"));
 }
-console.log("You are going to buy the following things " + buyItems);
+console.log("You are going to store to buy the following things " + buyItems);
 for (var s = 0; s < 5; s++){
-  var itemsBought = window.prompt("Enter five items that you have bought");
+  var itemsBought = window.prompt("Enter five items that you want to buy");
   var bytaItems = buyItems.find(function (element) {return element == itemsBought;});
-  buyItems.splice(buyItems.indexOf(bytaItems),1);
-}
-console.log("You have bought all the listed products");
-//9
+    console.log("You bought " + itemsBought);
+    if (itemsBought == bytaItems) {
+    buyItems.splice(buyItems.indexOf(bytaItems),1);
+    console.log(buyItems);
+    }
+  }
+  if (buyItems.length != 0) {
+    for (var leftItems = 0; leftItems < buyItems.length; leftItems++) {
+      console.log("You did not bought the following item from the shopping list " + buyItems[leftItems]);
+    }
+  }
+//9 !!! .pop
 var race = ['Mercedes','Volvo','Volkswagon','Saab','Toyota'];
 for (var q = 0; q < race.length; q++) {
   var index = Math.floor(Math.random() * race.length);
@@ -90,8 +98,8 @@ var q3ans = ['Dhaka','Chittagong','Sylhet'];
 var correctAnswer = [];
 var point = 0;
 
-  var q1 = window.prompt("Name some of the cities of USA?");
-  for (var f = 0; f < q1ans.length; f++) {
+var q1 = window.prompt("Name some of the cities of USA?");
+for (var f = 0; f < q1ans.length; f++) {
   if (q1 == q1ans[f]) {
     correctAnswer.push(q1ans[f]);
     point += 2;
@@ -111,10 +119,38 @@ for (var h = 0; h < q3ans.length; h++) {
   if (q3 == q3ans[h]) {
     correctAnswer.push(q3ans[h]);
     point += 2;
+  }
 }
-}
-//console.log(correctAnswer);
-//console.log(point);
+console.log(correctAnswer);
+console.log(point);
+//15 !!! better  ;)
+var returncurrency = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+var determinedCurrency = [];
+var note, sum = 0;
+
+var amountPurchased = parseInt(window.prompt("Show the amount purchased by the customer"));
+
+var amountPaid = parseInt(window.prompt("Show the amount paid by the customer"));
+
+if (amountPaid > amountPurchased) {
+  amountReturn = amountPaid - amountPurchased;
+  console.log("We must return " + amountReturn);
+  }
+  for (var l = 0; l < returncurrency.length; l++) {
+    if (amountReturn < returncurrency[l]) {
+      continue;
+    } else {
+      note = returncurrency[l];
+      console.log("We returned " + note);
+      sum += returncurrency[l];
+      console.log("Customer got " + sum);
+      amountReturn -= returncurrency[l];
+      l = -1;
+      if(sum == amountReturn) {
+        break;
+        }
+      }
+    }
 //15
 var returncurrency = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
 var determinedCurrency = [];
