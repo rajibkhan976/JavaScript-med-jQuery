@@ -1,0 +1,175 @@
+<html>
+<title></title>
+<head>
+<style>
+div {
+  height: 100px;
+  width: 200px;
+  background-color: red;
+}
+#div6 {
+  height:100px;width:500px;padding:10px;border:1px solid blue;background-color:lightblue;
+}
+</style>
+</head>
+<body onclick="myFunction(event)">
+<div class="div1" onclick="hejsan ()">
+
+</div>
+<img src="clothes-forming-colorful-circle-icon-450w-260426183.jpg" alt="" onmouseover="anonymF1 ()" id="img1">
+<span id="q1" style="color: yellow;"></span>
+<div id="div3" onclick="changeColor1 ()">
+
+</div>
+<div id="div4" onmouseenter="changeColor2 ()">
+
+</div>
+<div id="div5" onmouseleave="changeColor3 ()">
+
+</div>
+
+<input type="text" id="testkeydown" value="">
+<div id="div6">
+This is a div element.
+<p style="background-color:pink" id="div6p">This is a p element, in the div element. <br>
+<span style="background-color:orange" id="div6span">This is a span element in the p and the div element.</span></p></div>
+<div id="myDiv1">
+  <h2>Bubbling:</h2>
+  <p id="myP1">Click me!</p>
+</div><br>
+
+<div id="myDiv2">
+  <h2>Capturing:</h2>
+  <p id="myP2">Click me!</p>
+</div>
+<script type="text/javascript">
+//1
+var para1 = document.createElement("p");
+para1.innerHTML = "Hello World!";
+document.body.appendChild(para1);
+//2
+var para2 = document.createElement("p");
+para2.innerHTML = "EC Utbildning";
+var div1 = document.querySelector('div');
+document.body.insertBefore(para2, div1);
+//3
+function hejsan () {
+  console.log("hejsan");
+}
+//4
+var anonymF1 = function () {
+  var q1 = document.getElementById('q1');
+  q1.innerHTML = 'Vad duktig du är?';
+}
+//5
+document.addEventListener('mousemove', logKey);
+function logKey(e) {
+  div1.textContent  = `
+    Client X/Y: ${e.clientX}, ${e.clientY}`;
+}
+//6
+document.getElementById('q1').style.backgroundColor = 'teal';
+//7
+var style = window.getComputedStyle? getComputedStyle (q1, null): a.currentStyle;
+console.log(style.color);
+//8
+var div2 = document.createElement("div");
+q1.after(div2);
+div2.addEventListener('click', event => {
+  div2.innerHTML = `Click : ${event.detail}`;
+});
+//9
+var div3 = document.getElementById('div3');
+var div4 = document.getElementById('div4');
+var div5 = document.getElementById('div5');
+function changeColor1 () {
+  div3.style.backgroundColor = "teal";
+}
+function changeColor2 () {
+  div4.style.backgroundColor = "orange";
+}
+function changeColor3 () {
+  div5.style.backgroundColor = "yellow";
+}
+//10
+var inputtestdown = document.getElementById('testkeydown');
+inputtestdown.addEventListener('keydown', (event) => {
+  if (event) {div5.innerHTML = "Sluta";}
+},false);
+function timeCount() {
+      var twoSecond = setInterval(flashText, 2000);
+    }
+    function flashText () {
+      div5.innerHTML = "";
+    }
+    timeCount();
+//11
+var count = 0;
+function fiveClick () {
+  count++;
+  div4.innerHTML = count;
+  if (count == 5) {
+    div4.removeEventListener('click',  fiveClick, false);
+    div4.innerHTML = "I am free from event";
+  }
+}
+div4.addEventListener('click', fiveClick, false);
+//12
+var oneSecond;
+div5.addEventListener('click', makeDiv);
+function makeDiv () {
+  var div6 = document.createElement("div");
+  div5.appendChild(div6);
+  oneSecond = setInterval(removeDiv, 1000);
+}
+function removeDiv () {
+  div6.removeChild();
+}
+//13
+var singleFunc = function () {
+  console.log("I love JavaScript");
+}
+inputtestdown.addEventListener('click', singleFunc);
+inputtestdown.addEventListener('dblclick', singleFunc);
+inputtestdown.addEventListener('focus', singleFunc);
+//14 Websites
+//Event bubbling directs an event to its intended target, it works like this:
+//A button is clicked and the event is directed to the button
+//If an event handler is set for that object, the event is triggered
+//If no event handler is set for that object, the event bubbles up (like a bubble in water) to the objects parent
+//The event bubbles up from parent to parent until it is handled, or until it reaches the document object.
+
+//A polyfill is a browser fallback, made in JavaScript, that allows functionality you expect to work in modern browsers to work in older browsers,
+//e.g., to support canvas (an HTML5 feature) in older browsers.
+//Polyfill.io makes it simpler to support differing browsers by attempting to recreate the missing features with polyfills
+//15 W3School
+var div6 = document.getElementById('div6');
+var div6p = document.getElementById('div6p');
+var div6span = document.getElementById('div6span');
+div6.addEventListener('click', (event) => { event.stopPropagation(); alert("The div element was clicked.");});
+div6p.addEventListener('click', (event) => {alert("The p element was clicked.");});
+div6span.addEventListener('click', (event) => {alert("The span element was clicked.");});
+//16 W3School
+document.getElementById("myP1").addEventListener("click", function() {
+  alert("You clicked the white element!");
+}, false);
+
+document.getElementById("myDiv1").addEventListener("click", function() {
+  alert("You clicked the orange element!");
+}, false);
+
+document.getElementById("myP2").addEventListener("click", function() {
+  alert("You clicked the white element!");
+}, true);
+
+document.getElementById("myDiv2").addEventListener("click", function() {
+  alert("You clicked the orange element!");
+}, true);
+//17 W3School
+function myFunction(event) {
+  alert(event.currentTarget.nodeName);
+  alert(event.target.nodeName);
+}
+</script>
+</body>
+</html>
