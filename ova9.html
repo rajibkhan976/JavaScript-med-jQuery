@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('body').append('<div id="info"></div>');
+        $.get("https://jsonplaceholder.typicode.com/comments", function(data, status){
+              console.log(data);
+              for (var i = 0; i < data.length; i++) {
+                var userdata = data[i];
+                for (var c in userdata) {
+                  var postid = '<p class="comments">' + c + ": " + userdata[c] +  '</p>';
+                  console.log(postid);
+                  $('#info').append(postid);
+                }
+              }
+              $('.comments').css('color', 'blue');
+            });
+      });
+    </script>
+  </body>
+</html>

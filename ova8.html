@@ -10,6 +10,12 @@ div {
 #div6 {
   height:100px;width:500px;padding:10px;border:1px solid blue;background-color:lightblue;
 }
+#myDiv1, #myDiv2 {
+  background-color: orange;
+}
+#myP1, #myP2 {
+  background-color: white;
+}
 </style>
 </head>
 <body onclick="myFunction(event)">
@@ -146,9 +152,9 @@ inputtestdown.addEventListener('focus', singleFunc);
 var div6 = document.getElementById('div6');
 var div6p = document.getElementById('div6p');
 var div6span = document.getElementById('div6span');
-div6.addEventListener('click', (event) => { event.stopPropagation(); alert("The div element was clicked.");});
-div6p.addEventListener('click', (event) => {alert("The p element was clicked.");});
-div6span.addEventListener('click', (event) => {alert("The span element was clicked.");});
+div6.addEventListener('click', (event) => { alert("The div element was clicked."); } );
+div6p.addEventListener('click', (event) => { alert("The p element was clicked."); } );
+div6span.addEventListener('click', (event) => { event.stopPropagation(); alert("The span element was clicked."); } );
 //16 W3School
 document.getElementById("myP1").addEventListener("click", function() {
   alert("You clicked the white element!");
